@@ -33,6 +33,7 @@ lazy val dependencies =
     val enumeratumVersion = "1.6.1"
     val akkaVersion = "2.6.12"
     val rocksdbVersion = "5.0.1"
+    val blake3Version = "0.2.0"
 
     val tink = "com.google.crypto.tink" % "tink" % tinkV
     val jna = "net.java.dev.jna" % "jna" % jnaV
@@ -43,6 +44,7 @@ lazy val dependencies =
     val rocksdb = "org.rocksdb" % "rocksdbjni" % rocksdbVersion
     val scalatest = "org.scalatest" %% "scalatest" % scalatestV
     val scalacheck = "org.scalacheck" %% "scalacheck" % scalacheckV
+    val blake3 = "org.alephium" %% "blake3-jni" % blake3Version
   }
 
 lazy val commonDependencies = Seq(
@@ -53,6 +55,7 @@ lazy val commonDependencies = Seq(
   dependencies.enumeratum,
   dependencies.akka,
   dependencies.rocksdb,
+  dependencies.blake3,
   dependencies.scalatest % Test,
   dependencies.scalacheck % Test,
 )

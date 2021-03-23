@@ -1,6 +1,7 @@
 import com.google.crypto.tink.aead.{AeadConfig, AesGcmKeyManager}
 import com.google.crypto.tink.{Aead, KeysetHandle}
 import database.RocksDBService
+import direct.Client
 
 object Bob extends App {
   val secrets = Array(
@@ -20,6 +21,8 @@ object Bob extends App {
   val aead = KeysetHandle.generateNew(AesGcmKeyManager.aes256GcmTemplate).getPrimitive(classOf[Aead])
 
   val km = new KeyManager(db, secrets, aead)
+
+//  val dc = new Client("127.0.0.1:4675", )
 
   //initialize direct mode
 

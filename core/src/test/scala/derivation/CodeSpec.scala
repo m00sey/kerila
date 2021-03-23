@@ -1,5 +1,6 @@
 package derivation
 
+import derivation.Code.Ed25519
 import org.scalatest.funsuite.AnyFunSuite
 
 class CodeSpec extends AnyFunSuite {
@@ -11,10 +12,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.Ed25519Seed.prefixDataLength.equals(33))
     assert(Code.Ed25519Seed.length.equals(1))
     assert(Code.Ed25519Seed.default.equals("############################################"))
-    assert(!Code.Ed25519Seed.selfAddressing)
-    assert(!Code.Ed25519Seed.selfSigning)
-    assert(!Code.Ed25519Seed.basic)
-    assert(!Code.Ed25519Seed.attachedSignature)
   }
 
   test("Ed25519NT is correct") {
@@ -25,10 +22,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.Ed25519NT.prefixDataLength.equals(33))
     assert(Code.Ed25519NT.length.equals(1))
     assert(Code.Ed25519NT.default.equals("############################################"))
-    assert(!Code.Ed25519NT.selfAddressing)
-    assert(!Code.Ed25519NT.selfSigning)
-    assert(Code.Ed25519NT.basic)
-    assert(!Code.Ed25519NT.attachedSignature)
   }
 
   test("X25519 is correct") {
@@ -39,10 +32,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.X25519.prefixDataLength.equals(33))
     assert(Code.X25519.length.equals(1))
     assert(Code.X25519.default.equals("############################################"))
-    assert(!Code.X25519.selfAddressing)
-    assert(!Code.X25519.selfSigning)
-    assert(!Code.X25519.basic)
-    assert(!Code.X25519.attachedSignature)
   }
 
   test("Ed25519 is correct") {
@@ -53,10 +42,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.Ed25519.prefixDataLength.equals(33))
     assert(Code.Ed25519.length.equals(1))
     assert(Code.Ed25519.default.equals("############################################"))
-    assert(!Code.Ed25519.selfAddressing)
-    assert(!Code.Ed25519.selfSigning)
-    assert(Code.Ed25519.basic)
-    assert(!Code.Ed25519.attachedSignature)
   }
 
   test("Blake3256 is correct") {
@@ -67,10 +52,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.Blake3256.prefixDataLength.equals(33))
     assert(Code.Blake3256.length.equals(1))
     assert(Code.Blake3256.default.equals("############################################"))
-    assert(Code.Blake3256.selfAddressing)
-    assert(!Code.Blake3256.selfSigning)
-    assert(!Code.Blake3256.basic)
-    assert(!Code.Blake3256.attachedSignature)
   }
 
   test("Blake2b256 is correct") {
@@ -81,10 +62,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.Blake2b256.prefixDataLength.equals(33))
     assert(Code.Blake2b256.length.equals(1))
     assert(Code.Blake2b256.default.equals("############################################"))
-    assert(Code.Blake2b256.selfAddressing)
-    assert(!Code.Blake2b256.selfSigning)
-    assert(!Code.Blake2b256.basic)
-    assert(!Code.Blake2b256.attachedSignature)
   }
 
   test("Blake2s256 is correct") {
@@ -95,10 +72,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.Blake2s256.prefixDataLength.equals(33))
     assert(Code.Blake2s256.length.equals(1))
     assert(Code.Blake2s256.default.equals("############################################"))
-    assert(Code.Blake2s256.selfAddressing)
-    assert(!Code.Blake2s256.selfSigning)
-    assert(!Code.Blake2s256.basic)
-    assert(!Code.Blake2s256.attachedSignature)
   }
 
   test("SHA3256 is correct") {
@@ -109,10 +82,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.SHA3256.prefixDataLength.equals(33))
     assert(Code.SHA3256.length.equals(1))
     assert(Code.SHA3256.default.equals("############################################"))
-    assert(Code.SHA3256.selfAddressing)
-    assert(!Code.SHA3256.selfSigning)
-    assert(!Code.SHA3256.basic)
-    assert(!Code.SHA3256.attachedSignature)
   }
 
   test("SHA2256 is correct") {
@@ -123,10 +92,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.SHA2256.prefixDataLength.equals(33))
     assert(Code.SHA2256.length.equals(1))
     assert(Code.SHA2256.default.equals("############################################"))
-    assert(Code.SHA2256.selfAddressing)
-    assert(!Code.SHA2256.selfSigning)
-    assert(!Code.SHA2256.basic)
-    assert(!Code.SHA2256.attachedSignature)
   }
 
   test("RandomSeed128 is correct") {
@@ -137,10 +102,7 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.RandomSeed128.prefixDataLength.equals(18))
     assert(Code.RandomSeed128.length.equals(2))
     assert(Code.RandomSeed128.default.equals("########################"))
-    assert(!Code.RandomSeed128.selfAddressing)
-    assert(!Code.RandomSeed128.selfSigning)
-    assert(!Code.RandomSeed128.basic)
-    assert(!Code.RandomSeed128.attachedSignature)
+
   }
 
   test("Ed25519Sig is correct") {
@@ -151,10 +113,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.Ed25519Sig.prefixDataLength.equals(64))
     assert(Code.Ed25519Sig.length.equals(2))
     assert(Code.Ed25519Sig.default.equals("########################################################################################"))
-    assert(!Code.Ed25519Sig.selfAddressing)
-    assert(Code.Ed25519Sig.selfSigning)
-    assert(!Code.Ed25519Sig.basic)
-    assert(!Code.Ed25519Sig.attachedSignature)
   }
 
   test("EcDSASig is correct") {
@@ -165,10 +123,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.EcDSASig.prefixDataLength.equals(64))
     assert(Code.EcDSASig.length.equals(2))
     assert(Code.EcDSASig.default.equals("########################################################################################"))
-    assert(!Code.EcDSASig.selfAddressing)
-    assert(!Code.EcDSASig.selfSigning)
-    assert(!Code.EcDSASig.basic)
-    assert(!Code.EcDSASig.attachedSignature)
   }
 
   test("Blake3512 is correct") {
@@ -179,10 +133,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.Blake3512.prefixDataLength.equals(64))
     assert(Code.Blake3512.length.equals(2))
     assert(Code.Blake3512.default.equals("########################################################################################"))
-    assert(Code.Blake3512.selfAddressing)
-    assert(!Code.Blake3512.selfSigning)
-    assert(!Code.Blake3512.basic)
-    assert(!Code.Blake3512.attachedSignature)
   }
 
   test("SHA3512 is correct") {
@@ -193,10 +143,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.SHA3512.prefixDataLength.equals(64))
     assert(Code.SHA3512.length.equals(2))
     assert(Code.SHA3512.default.equals("########################################################################################"))
-    assert(Code.SHA3512.selfAddressing)
-    assert(!Code.SHA3512.selfSigning)
-    assert(!Code.SHA3512.basic)
-    assert(!Code.SHA3512.attachedSignature)
   }
 
   test("Blake2b512 is correct") {
@@ -207,10 +153,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.Blake2b512.prefixDataLength.equals(64))
     assert(Code.Blake2b512.length.equals(2))
     assert(Code.Blake2b512.default.equals("########################################################################################"))
-    assert(Code.Blake2b512.selfAddressing)
-    assert(!Code.Blake2b512.selfSigning)
-    assert(!Code.Blake2b512.basic)
-    assert(!Code.Blake2b512.attachedSignature)
   }
 
   test("SHA2512 is correct") {
@@ -221,10 +163,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.SHA2512.prefixDataLength.equals(64))
     assert(Code.SHA2512.length.equals(2))
     assert(Code.SHA2512.default.equals("########################################################################################"))
-    assert(Code.SHA2512.selfAddressing)
-    assert(!Code.SHA2512.selfSigning)
-    assert(!Code.SHA2512.basic)
-    assert(!Code.SHA2512.attachedSignature)
   }
 
   test("Ed25519Attached is correct") {
@@ -235,10 +173,6 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.Ed25519Attached.prefixDataLength.equals(64))
     assert(Code.Ed25519Attached.length.equals(2))
     assert(Code.Ed25519Attached.default.equals("########################################################################################"))
-    assert(!Code.Ed25519Attached.selfAddressing)
-    assert(!Code.Ed25519Attached.selfSigning)
-    assert(!Code.Ed25519Attached.basic)
-    assert(Code.Ed25519Attached.attachedSignature)
   }
 
   test("EcDSAAttached is correct") {
@@ -249,9 +183,10 @@ class CodeSpec extends AnyFunSuite {
     assert(Code.EcDSAAttached.prefixDataLength.equals(64))
     assert(Code.EcDSAAttached.length.equals(2))
     assert(Code.EcDSAAttached.default.equals("########################################################################################"))
-    assert(!Code.EcDSAAttached.selfAddressing)
-    assert(!Code.EcDSAAttached.selfSigning)
-    assert(!Code.EcDSAAttached.basic)
-    assert(Code.EcDSAAttached.attachedSignature)
+  }
+
+  test("self addressing") {
+    Code.Ed25519.is
+    assert(Ed2551)
   }
 }
